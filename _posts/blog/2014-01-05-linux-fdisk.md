@@ -57,7 +57,21 @@ category: blog
 * 都挂载成功了，但是重启挂载就没了
 
 ###自动挂载
+
 * `vim /etc/fstab` 在最后添加上
-* `dev/sdb1  /web  ext4   defaults   0 0`
+* `dev/sdb1  /web  ext4   defaults   0 2`
+* `LABEL=web /web  ext4   defaults   0 2` //卷标挂载
 *  分区      挂载点 文件类型 defaults  自动备份  是否进行检查
+*  `mount -a ` 测试挂载 切结要检查一遍保证没错在重启
 *  重启看看 
+
+###挂载失败进不去系统解决办法
+
+* 进入单用户模式
+* 重启随便按键盘上的键
+* 出现系统框按e-->选择kernel->按e-> 输入single ->在来按b
+* 进入系统，单用户默认是readonly 我们想修改要重新挂载
+* `mount -n -o remount,rw /`然后再修改`vim etc/fstab`里的错误
+* 第二种是在报错的地方输入root密码，过程类似
+####root密码忘记可以进单用户类似以上过程
+*`passwd root` 修改密码
