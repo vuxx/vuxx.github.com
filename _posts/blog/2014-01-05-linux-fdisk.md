@@ -73,5 +73,7 @@ category: blog
 * 进入系统，单用户默认是readonly 我们想修改要重新挂载
 * `mount -n -o remount,rw /`然后再修改`vim etc/fstab`里的错误
 * 第二种是在报错的地方输入root密码，过程类似
+
 ####root密码忘记可以进单用户类似以上过程
-*`passwd root` 修改密码
+
+* `passwd root` 修改密码
